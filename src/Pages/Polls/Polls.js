@@ -38,7 +38,7 @@ const Polls = () => {
             <h1>New Poll:</h1>
             <form onSubmit={handlePollSubmit}>
                 <label for="pollName">Name:</label>{" "}
-                <input onChange={(e) => setName(e.target.value)} value={name} type="text" id="fname" name="pollName" /> <br />
+                <input onChange={(e) => setName(e.target.value)} value={name} type="text" id="fname" name="pollName" required /> <br />
                 <button type="submit">Add Poll</button>
             </form>
         </div>

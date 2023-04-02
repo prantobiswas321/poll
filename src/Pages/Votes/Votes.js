@@ -88,7 +88,7 @@ const Votes = () => {
                 <input onChange={(e) => {
                     setName(e.target.value);
                     setError("");
-                }} value={name} type="text" id="fname" name="pollName" /> <br />
+                }} value={name} type="text" id="fname" name="pollName" required /> <br />
                 <label for="pollName">Vote Option:</label>{" "}
                 <select value={selectedValue} onChange={handleChange}>
                     {/* <option value="">Select an option</option> */}
@@ -99,8 +99,15 @@ const Votes = () => {
                     ))}
                 </select><br />
                 <button type="submit">Add Vote</button><br />
-                <span style={{ color: 'red' }}>{error}</span>
-                <br />
+                {
+                    error?.length > 0 ?
+                        <>
+                            <span style={{ color: 'red' }}>{error}</span><br />
+                        </>
+                        :
+                        null
+                }
+
                 <Link to={"/"}>Back to polls overview</Link>
             </form>
 
