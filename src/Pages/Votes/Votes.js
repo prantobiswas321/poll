@@ -9,6 +9,7 @@ const Votes = () => {
 
     const [votes, setVotes] = useState([]);
     const [pollName, setPollName] = useState("");
+    const [pollDesc, setPollDesc] = useState("");
     const [name, setName] = useState("");
     const [selectedValue, setSelectedValue] = useState('YES');
     const [success, setSuccess] = useState(false);
@@ -17,6 +18,7 @@ const Votes = () => {
     useEffect(() => {
         get(`selectedPoll/${userId}`).then(res => {
             setPollName(res?.pollName);
+            setPollDesc(res?.pollDescription);
             setVotes(res?.votes);
         })
     }, [success])
@@ -63,6 +65,7 @@ const Votes = () => {
     return (
         <div className='container-fluid'>
             <h1>{pollName}</h1>
+            <p>{pollDesc}</p>
             <h3>Existing Votes:</h3>
 
             <table>
